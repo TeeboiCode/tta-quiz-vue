@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tta | VUE Quiz</title>
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- box icon -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- sweetalert -->
+    <link rel="stylesheet" href="sweetalert2.min.css" />
+    <!-- font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- my css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- loading -->
+      <div class="container">
+        <div class="preload">
+          <div class="loading-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add this before the quiz starts -->
+      <div class="name-container hidden" id="nameContainer">
+        <form class="player-form" id="playerForm">
+          <h2>Enter Your Full Name</h2>
+          <input
+            type="text"
+            id="playerName"
+            placeholder="Your Full Name"
+            required
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <!-- count down -->
+      <div class="count-down-container hidden">
+        <h1 class="count-down-text" id="countdownText"></h1>
+        <h1 class="count-down-num" id="countdownNum"></h1>
+      </div>
+
+      <!-- start button -->
+      <div class="btn-start hidden" id="btn_start">
+        <button class="start-btn" id="start_btn">Start Quiz</button>
+      </div>
+
+      <div class="quiz-rules hidden" id="quiz_rules">
+        <div class="card-top">
+          <h2 class="heading">Some Rules of this Quiz</h2>
+          <span class="hr-top"><hr /></span>
+        </div>
+        <div class="card-body">
+          <ol type="1">
+            <li>
+              You will have only <span class="sec">30 seconds</span> per each
+              question.
+            </li>
+            <li>Once you select your answer, it can't be undone.</li>
+            <li>You can't select any option ance time goes off.</li>
+            <li>You can't exit from the Quiz while you're playing.</li>
+            <li>You'll get points on the basis of your correct answers.</li>
+          </ol>
+        </div>
+        <div class="btn-group">
+          <span class="hr-down"><hr /></span>
+          <button class="btn btn-exit" id="exitBtn">Exit</button>
+          <button class="btn btn-continue" id="continueBtn">
+            Quiz Continue
+          </button>
+        </div>
+      </div>
+
+      <div class="quiz-card hidden" id="quiz_card">
+        <div class="quiz-card-top">
+          <h3 class="heading">Awesome Quiz Application</h3>
+          <div class="left-time">
+            <p>Time Left <span class="tym"></span></p>
+          </div>
+        </div>
+        <div class="quiz-card-body">
+          <h2>
+            <span class="questionNextNum"></span
+            ><span class="question" id="question"></span>
+          </h2>
+          <div class="options">
+            <p id="answer-option"></p>
+          </div>
+        </div>
+        <!-- <hr class="line-down" /> -->
+        <div class="question-num">
+          <p>
+            <span class="next-question"></span> of
+            <span class="total-question2"></span> Questions
+          </p>
+          <button class="btn btn-next hidden" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <div class="complete hidden" id="complete">
+        <div class="complete-card">
+          <span class="crown">👑</span>
+          <p>
+            You've completed the Quiz! <br />
+            and congrats! 🎉, You got <span class="correct-score"></span> out of
+            <span class="total-question"></span> <br /><br />
+            <span id="percentage" style="font-size: 3rem">
+              (<span class="percentage-score"></span>%)
+            </span>
+          </p>
+          <div class="btn-group">
+            <button class="replay-btn">Replay Quiz</button>
+            <button class="quit-btn">Quit Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- my js -->
+    <script src="script.js"></script>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+  </body>
+</html>

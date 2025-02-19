@@ -1,0 +1,11 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "A dynamic and interactive quiz application that allows users to test their knowledge on various topics. This app is designed with a clean user interface, customizable questions, and real-time scoring, making it ideal for learning, entertainment, or educational purposes.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
