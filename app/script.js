@@ -225,7 +225,7 @@ function startCountDown() {
 // ];
 
 
-const quizNodeExpressQuestions = [
+const quizQuestions = [
   // ==============================
   // API FUNDAMENTALS
   // ==============================
