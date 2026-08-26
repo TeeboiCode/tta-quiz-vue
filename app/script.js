@@ -225,615 +225,339 @@ function startCountDown() {
 // ];
 
 
-const quizQuestions = [
+const quizNodeExpressQuestions = [
+  // ==============================
+  // API FUNDAMENTALS
+  // ==============================
+
   {
     id: 1,
-    question: "What is Vue.js?",
+    question: "What does API stand for?",
     options: [
-      "A backend framework",
-      "A JavaScript library",
-      "A progressive JavaScript framework",
-      "A database system",
+      "Application Programming Interface",
+      "Application Process Integration",
+      "Advanced Programming Interface",
+      "Application Program Internet",
     ],
-    correct: "A progressive JavaScript framework",
+    correct: "Application Programming Interface",
   },
+
   {
     id: 2,
-    question: "Which command is used to create a new Vue.js project?",
+    question: "What is the main purpose of an API?",
     options: [
-      "vue create my-app",
-      "npm install vue",
-      "vue new my-app",
-      "npx create-vue my-app",
+      "To design a website",
+      "To allow applications to communicate with each other",
+      "To create CSS animations",
+      "To store images",
     ],
-    correct: "vue create my-app",
+    correct: "To allow applications to communicate with each other",
   },
+
   {
     id: 3,
-    question: "What is the default file extension for Vue single-file components?",
-    options: [".vue", ".jsx", ".js", ".vjs"],
-    correct: ".vue",
+    question: "What is an endpoint in an API?",
+    options: [
+      "A database table",
+      "A specific location where an API can be accessed",
+      "A JavaScript variable",
+      "A CSS selector",
+    ],
+    correct: "A specific location where an API can be accessed",
   },
+
   {
     id: 4,
-    question: "Which directive is used for conditional rendering?",
-    options: ["v-show", "v-if", "v-bind", "v-for"],
-    correct: "v-if",
+    question: "What is a path in an API?",
+    options: [
+      "The URL pattern used to identify a resource",
+      "The database password",
+      "The server's operating system",
+      "The HTTP status code",
+    ],
+    correct: "The URL pattern used to identify a resource",
   },
+
   {
     id: 5,
-    question: "Which directive is used for looping over an array?",
-    options: ["v-if", "v-bind", "v-show", "v-for"],
-    correct: "v-for",
+    question: "What makes up a route in an Express application?",
+    options: [
+      "Only a URL",
+      "Only an HTTP method",
+      "HTTP method, path, and handler",
+      "Only a controller",
+    ],
+    correct: "HTTP method, path, and handler",
   },
+
+  // ==============================
+  // HTTP METHODS AND CRUD
+  // ==============================
+
   {
     id: 6,
-    question: "Which syntax is used for data binding in Vue.js?",
-    options: ["{{ data }}", "[[ data ]]", "(( data ))", "< data >"],
-    correct: "{{ data }}",
+    question: "Which HTTP method is normally used to retrieve data?",
+    options: ["POST", "GET", "PUT", "DELETE"],
+    correct: "GET",
   },
+
   {
     id: 7,
-    question: "What does `v-model` do in Vue.js?",
-    options: [
-      "Binds an input field to a data property",
-      "Loops through an array",
-      "Defines a computed property",
-      "Creates a new Vue instance",
-    ],
-    correct: "Binds an input field to a data property",
+    question: "Which HTTP method is normally used to create a new resource?",
+    options: ["GET", "POST", "PATCH", "DELETE"],
+    correct: "POST",
   },
+
   {
     id: 8,
-    question: "Which directive is used to bind an attribute to a dynamic value?",
-    options: ["v-if", "v-bind", "v-on", "v-for"],
-    correct: "v-bind",
+    question: "Which HTTP method is commonly used to replace an entire resource?",
+    options: ["GET", "POST", "PUT", "PATCH"],
+    correct: "PUT",
   },
+
   {
     id: 9,
-    question: "How do you listen for events in Vue.js?",
-    options: ["v-bind", "v-on", "v-model", "v-if"],
-    correct: "v-on",
+    question: "Which HTTP method is commonly used to partially update a resource?",
+    options: ["POST", "GET", "PATCH", "DELETE"],
+    correct: "PATCH",
   },
+
   {
     id: 10,
-    question: "Which Vue.js lifecycle method is called after the component is mounted?",
-    options: ["created", "mounted", "updated", "beforeMount"],
-    correct: "mounted",
+    question: "Which HTTP method is used to delete a resource?",
+    options: ["GET", "POST", "DELETE", "PUT"],
+    correct: "DELETE",
   },
+
   {
     id: 11,
-    question: "What is the purpose of computed properties in Vue.js?",
+    question: "What does CRUD stand for?",
     options: [
-      "To store data",
-      "To define functions",
-      "To perform expensive operations reactively",
-      "To handle API requests",
+      "Create, Read, Update, Delete",
+      "Create, Run, Upload, Download",
+      "Connect, Read, Update, Deploy",
+      "Create, Request, Use, Delete",
     ],
-    correct: "To perform expensive operations reactively",
+    correct: "Create, Read, Update, Delete",
   },
+
   {
     id: 12,
-    question: "Which directive is used to dynamically add or remove CSS classes?",
-    options: ["v-style", "v-if", "v-bind:class", "v-class"],
-    correct: "v-bind:class",
+    question: "Which HTTP method would you use for GET /api/students?",
+    options: ["GET", "POST", "PUT", "DELETE"],
+    correct: "GET",
   },
+
   {
     id: 13,
-    question: "Which directive is used to dynamically update inline styles?",
-    options: ["v-style", "v-if", "v-bind:style", "v-css"],
-    correct: "v-bind:style",
+    question: "Which route would normally be used to retrieve student with ID 5?",
+    options: [
+      "/api/students",
+      "/api/students/5",
+      "/students?id=5",
+      "/api/student?id",
+    ],
+    correct: "/api/students/5",
   },
+
   {
     id: 14,
-    question: "What is the purpose of the `watch` option in Vue?",
+    question: "What does :id represent in /api/students/:id?",
     options: [
-      "To create computed properties",
-      "To watch changes in data properties and execute functions",
-      "To define reusable components",
-      "To bind data to the DOM",
+      "A query string",
+      "A route parameter",
+      "A middleware",
+      "A request body",
     ],
-    correct: "To watch changes in data properties and execute functions",
+    correct: "A route parameter",
   },
+
+  // ==============================
+  // EXPRESS
+  // ==============================
+
   {
     id: 15,
-    question: "How do you define a method inside a Vue component?",
-    options: [
-      "Inside the `data` function",
-      "Inside the `methods` object",
-      "Inside the `computed` object",
-      "Inside the `watch` object",
-    ],
-    correct: "Inside the `methods` object",
+    question: "Which package is commonly used to create a server with Node.js?",
+    options: ["Express", "Bootstrap", "Axios", "Sass"],
+    correct: "Express",
   },
+
   {
     id: 16,
-    question: "Which keyword is used to create a Vue component?",
-    options: ["Vue.extend", "Vue.component", "Vue.create", "Vue.register"],
-    correct: "Vue.component",
+    question: "How do you create an Express application?",
+    options: [
+      "const app = express()",
+      "const app = new ExpressServer()",
+      "const app = createExpress()",
+      "const app = Express.create()",
+    ],
+    correct: "const app = express()",
   },
+
   {
     id: 17,
-    question: "What does `this` refer to inside a Vue component?",
-    options: [
-      "The global JavaScript object",
-      "The Vue instance",
-      "The parent component",
-      "The DOM element",
-    ],
-    correct: "The Vue instance",
+    question: "Which method is used to define a GET route in Express?",
+    options: ["app.fetch()", "app.get()", "app.request()", "app.read()"],
+    correct: "app.get()",
   },
+
   {
     id: 18,
-    question: "Which Vue directive is used for event modifiers?",
-    options: ["v-on", "v-bind", "v-event", "v-modifier"],
-    correct: "v-on",
+    question: "What does app.listen() do in an Express application?",
+    options: [
+      "Reads the database",
+      "Starts the server and listens for requests",
+      "Creates a route",
+      "Deletes a resource",
+    ],
+    correct: "Starts the server and listens for requests",
   },
+
   {
     id: 19,
-    question: "Which file is the main entry point of a Vue project?",
-    options: ["index.html", "main.js", "App.vue", "config.js"],
-    correct: "main.js",
+    question: "Which middleware allows Express to parse JSON request bodies?",
+    options: [
+      "express.json()",
+      "express.body()",
+      "express.parseJSON()",
+      "express.requestJSON()",
+    ],
+    correct: "express.json()",
   },
+
   {
     id: 20,
-    question: "Which directive is used to prevent default event behavior?",
+    question: "If a client sends JSON data in a POST request, where can Express access the parsed data?",
     options: [
-      "v-prevent",
-      "v-stop",
-      "v-on:click.prevent",
-      "v-bind.prevent",
+      "req.params",
+      "req.body",
+      "req.json",
+      "req.data",
     ],
-    correct: "v-on:click.prevent",
+    correct: "req.body",
   },
+
+  // ==============================
+  // MIDDLEWARE AND CORS
+  // ==============================
+
   {
     id: 21,
-    question: "What is Vue Router used for?",
+    question: "What is middleware in Express?",
     options: [
-      "Managing state in Vue",
-      "Handling API requests",
-      "Routing between different pages in a Vue application",
-      "Styling Vue components",
+      "Code that can run during the request-response cycle",
+      "A database",
+      "A frontend framework",
+      "A JSON file",
     ],
-    correct: "Routing between different pages in a Vue application",
+    correct: "Code that can run during the request-response cycle",
   },
+
   {
     id: 22,
-    question: "Which command is used to add Vue Router to a Vue project?",
-    options: [
-      "vue install router",
-      "npm install vue-router",
-      "vue add router",
-      "npm add router",
-    ],
-    correct: "vue add router",
+    question: "Which package is commonly used to enable CORS in Express?",
+    options: ["cors", "cross-origin", "express-cors-server", "origin"],
+    correct: "cors",
   },
+
   {
     id: 23,
-    question: "How do you pass data from a parent to a child component?",
-    options: ["Using slots", "Using events", "Using props", "Using refs"],
-    correct: "Using props",
+    question: "What is the main purpose of CORS?",
+    options: [
+      "To create database tables",
+      "To allow controlled requests between different origins",
+      "To encrypt passwords",
+      "To parse JSON files",
+    ],
+    correct: "To allow controlled requests between different origins",
   },
+
   {
     id: 24,
-    question: "What is a Vue mixin?",
+    question: "Which code enables CORS in an Express application?",
     options: [
-      "A reusable component",
-      "A way to extend Vue with additional options",
-      "A built-in function",
-      "A JavaScript library",
+      "app.use(cors())",
+      "app.cors(true)",
+      "app.enable(cors)",
+      "cors.enable(app)",
     ],
-    correct: "A way to extend Vue with additional options",
+    correct: "app.use(cors())",
   },
+
+  // ==============================
+  // DOTENV AND FILE SYSTEM
+  // ==============================
+
   {
     id: 25,
-    question: "Which property is used to access child components in Vue?",
-    options: ["this.children", "this.$child", "this.$refs", "this.$components"],
-    correct: "this.$refs",
+    question: "What is dotenv commonly used for?",
+    options: [
+      "Creating HTML pages",
+      "Loading environment variables from a .env file",
+      "Creating database tables",
+      "Handling CSS",
+    ],
+    correct: "Loading environment variables from a .env file",
   },
+
   {
     id: 26,
-    question: "How do you emit an event from a child component to a parent?",
+    question: "How do you load variables from a .env file using dotenv?",
     options: [
-      "this.send()",
-      "this.emit()",
-      "this.$emit()",
-      "this.$send()",
+      "dotenv.start()",
+      "dotenv.load()",
+      "dotenv.config()",
+      "dotenv.env()",
     ],
-    correct: "this.$emit()",
+    correct: "dotenv.config()",
   },
+
   {
     id: 27,
-    question: "What is the purpose of Vuex?",
+    question: "How can you access an environment variable called PORT?",
     options: [
-      "To manage component templates",
-      "To handle Vue routing",
-      "To manage application state",
-      "To bind events",
+      "env.PORT",
+      "process.env.PORT",
+      "dotenv.PORT",
+      "process.PORT",
     ],
-    correct: "To manage application state",
+    correct: "process.env.PORT",
   },
+
   {
     id: 28,
-    question: "Which command is used to install Vuex?",
-    options: [
-      "vue add vuex",
-      "npm install vuex",
-      "vue install vuex",
-      "npm add vuex",
-    ],
-    correct: "vue add vuex",
+    question: "Which Node.js module can be used to read and write files?",
+    options: ["http", "fs", "url", "events"],
+    correct: "fs",
   },
+
+  // ==============================
+  // PROFESSIONAL ARCHITECTURE
+  // ==============================
+
   {
     id: 29,
-    question: "What does the `mounted` lifecycle hook do?",
+    question: "What is the main responsibility of a controller?",
     options: [
-      "Runs after the component is created",
-      "Runs before the component is destroyed",
-      "Runs after the component is added to the DOM",
-      "Runs when the component updates",
+      "Handle HTTP requests and responses",
+      "Only store database files",
+      "Only define URL paths",
+      "Start the Node.js server",
     ],
-    correct: "Runs after the component is added to the DOM",
+    correct: "Handle HTTP requests and responses",
   },
+
   {
     id: 30,
-    question: "Which of the following is NOT a Vue directive?",
-    options: ["v-for", "v-if", "v-bind", "v-function"],
-    correct: "v-function",
-  },
-];
-
-
-const quizHTMLQuestions = [
-  // Basic CSS Questions
-  {
-    id: 1,
-    question: "What does CSS stand for?",
+    question: "What is the main responsibility of a service in a professional Express application?",
     options: [
-      "Creative Style Sheets",
-      "Cascading Style Sheets",
-      "Colorful Style Sheets",
-      "Computer Style Sheets",
+      "Define CSS styles",
+      "Handle business and data-related logic",
+      "Define only HTTP methods",
+      "Start the server",
     ],
-    correct: "Cascading Style Sheets",
-  },
-  {
-    id: 2,
-    question: "Which property is used to change the text color in CSS?",
-    options: ["color", "text-color", "font-color", "foreground-color"],
-    correct: "color",
-  },
-  {
-    id: 3,
-    question: "How do you add an external CSS file to an HTML document?",
-    options: [
-      "<link rel='stylesheet' href='styles.css'>",
-      "<style src='styles.css'>",
-      "<stylesheet href='styles.css'>",
-      "<css-link href='styles.css'>",
-    ],
-    correct: "<link rel='stylesheet' href='styles.css'>",
-  },
-  {
-    id: 4,
-    question:
-      "Which property is used to set the background color of an element?",
-    options: ["background", "bg-color", "background-color", "color"],
-    correct: "background-color",
-  },
-  {
-    id: 5,
-    question: "What is the default value of the `position` property in CSS?",
-    options: ["static", "absolute", "relative", "fixed"],
-    correct: "static",
-  },
-  {
-    id: 6,
-    question: "Which property controls the font size of an element?",
-    options: ["font-size", "font-style", "text-size", "font-weight"],
-    correct: "font-size",
-  },
-  {
-    id: 7,
-    question: "How do you select an element with the ID `header` in CSS?",
-    options: ["#header", ".header", "header", "id=header"],
-    correct: "#header",
-  },
-  {
-    id: 8,
-    question:
-      "Which property is used to create space inside an element's border?",
-    options: ["padding", "margin", "spacing", "border-spacing"],
-    correct: "padding",
-  },
-  {
-    id: 9,
-    question:
-      "Which property is used to create space outside an element's border?",
-    options: ["margin", "padding", "gap", "border-spacing"],
-    correct: "margin",
-  },
-  {
-    id: 10,
-    question: "What is the correct syntax for a CSS comment?",
-    options: [
-      "// This is a comment",
-      "<!-- This is a comment -->",
-      "/* This is a comment */",
-      "### This is a comment ###",
-    ],
-    correct: "/* This is a comment */",
-  },
-  {
-    id: 11,
-    question: "Which property is used to make text italic in CSS?",
-    options: ["font-style", "font-variant", "text-style", "font-weight"],
-    correct: "font-style",
-  },
-  {
-    id: 12,
-    question: "What is the correct order of the box model in CSS?",
-    options: [
-      "Content > Padding > Border > Margin",
-      "Content > Margin > Border > Padding",
-      "Padding > Content > Border > Margin",
-      "Margin > Border > Padding > Content",
-    ],
-    correct: "Content > Padding > Border > Margin",
-  },
-  {
-    id: 13,
-    question: "Which property is used to set the underline of text?",
-    options: ["text-decoration", "font-style", "underline", "text-transform"],
-    correct: "text-decoration",
-  },
-  {
-    id: 14,
-    question: "Which CSS property is used to make text bold?",
-    options: ["font-weight", "font-style", "text-weight", "bold"],
-    correct: "font-weight",
-  },
-  {
-    id: 15,
-    question:
-      "Which CSS unit is relative to the font-size of the root element?",
-    options: ["em", "rem", "px", "pt"],
-    correct: "rem",
-  },
-  {
-    id: 16,
-    question: "Which property is used to set the space between lines of text?",
-    options: ["letter-spacing", "line-height", "text-spacing", "text-indent"],
-    correct: "line-height",
-  },
-  {
-    id: 17,
-    question: "How do you apply a class called 'main' in CSS?",
-    options: [".main", "#main", "main", "@main"],
-    correct: ".main",
-  },
-  {
-    id: 18,
-    question: "Which CSS property is used to align text horizontally?",
-    options: [
-      "text-align",
-      "text-style",
-      "horizontal-align",
-      "justify-content",
-    ],
-    correct: "text-align",
-  },
-  {
-    id: 19,
-    question:
-      "Which pseudo-class is used to target an element when hovered over?",
-    options: [":hover", ":focus", ":target", ":active"],
-    correct: ":hover",
-  },
-  {
-    id: 20,
-    question: "Which property is used to specify the width of a border?",
-    options: [
-      "border-width",
-      "border-size",
-      "border-thickness",
-      "border-height",
-    ],
-    correct: "border-width",
-  },
-
-  // Advanced CSS Questions
-  {
-    id: 21,
-    question: "What does the `@keyframes` rule do in CSS?",
-    options: [
-      "Defines an animation",
-      "Applies animations to elements",
-      "Controls transition timing",
-      "Sets media queries",
-    ],
-    correct: "Defines an animation",
-  },
-  {
-    id: 22,
-    question: "Which CSS property is used to create a flexible layout?",
-    options: ["display: flex", "position: relative", "float", "align-items"],
-    correct: "display: flex",
-  },
-  {
-    id: 23,
-    question: "What is the purpose of the `z-index` property in CSS?",
-    options: [
-      "Controls stacking order of elements",
-      "Adjusts element size",
-      "Applies 3D transformations",
-      "Sets opacity",
-    ],
-    correct: "Controls stacking order of elements",
-  },
-  {
-    id: 24,
-    question: "What is the `grid-template-columns` property used for?",
-    options: [
-      "Defines the structure of columns in a grid layout",
-      "Aligns grid items vertically",
-      "Controls the gap between grid items",
-      "Specifies column text alignment",
-    ],
-    correct: "Defines the structure of columns in a grid layout",
-  },
-  {
-    id: 25,
-    question:
-      "Which property is used to apply 3D transformations to an element?",
-    options: ["transform", "perspective", "translate3d", "rotate3d"],
-    correct: "transform",
-  },
-  {
-    id: 26,
-    question: "What does the `clip-path` property do?",
-    options: [
-      "Clips an element to a specified shape",
-      "Aligns an element",
-      "Changes background size",
-      "Sets text overflow",
-    ],
-    correct: "Clips an element to a specified shape",
-  },
-  {
-    id: 27,
-    question: "What is the default value of `flex-direction` in CSS flexbox?",
-    options: ["row", "column", "row-reverse", "column-reverse"],
-    correct: "row",
-  },
-  {
-    id: 28,
-    question: "Which property is used to apply a gradient background in CSS?",
-    options: [
-      "background-gradient",
-      "background",
-      "gradient",
-      "linear-gradient",
-    ],
-    correct: "background",
-  },
-  {
-    id: 29,
-    question: "Which property is used to control the speed of a transition?",
-    options: [
-      "transition-duration",
-      "transition-speed",
-      "animation-duration",
-      "speed",
-    ],
-    correct: "transition-duration",
-  },
-  {
-    id: 30,
-    question:
-      "Which value of `position` property is used to fix an element to the viewport?",
-    options: ["fixed", "absolute", "relative", "sticky"],
-    correct: "fixed",
-  },
-  {
-    id: 31,
-    question: "What does the `overflow` property do?",
-    options: [
-      "Controls content overflow of an element",
-      "Adjusts font size",
-      "Sets line spacing",
-      "Changes stacking order",
-    ],
-    correct: "Controls content overflow of an element",
-  },
-  {
-    id: 32,
-    question: "What is the purpose of `justify-content` in flexbox?",
-    options: [
-      "Aligns items along the main axis",
-      "Aligns items along the cross axis",
-      "Defines the space between lines",
-      "Defines column structure",
-    ],
-    correct: "Aligns items along the main axis",
-  },
-  {
-    id: 33,
-    question: "Which property is used to create animations in CSS?",
-    options: ["animation", "transition", "transform", "hover"],
-    correct: "animation",
-  },
-  {
-    id: 34,
-    question: "Which value of `display` creates a grid container?",
-    options: ["grid", "flex", "block", "inline-grid"],
-    correct: "grid",
-  },
-  {
-    id: 35,
-    question: "What does the `align-items` property do in flexbox?",
-    options: [
-      "Aligns items along the cross axis",
-      "Aligns items along the main axis",
-      "Sets column gaps",
-      "Creates flexible layouts",
-    ],
-    correct: "Aligns items along the cross axis",
-  },
-  {
-    id: 36,
-    question: "What is a `media query` used for in CSS?",
-    options: [
-      "To apply styles based on screen size",
-      "To define animations",
-      "To apply hover effects",
-      "To control text flow",
-    ],
-    correct: "To apply styles based on screen size",
-  },
-  {
-    id: 37,
-    question: "Which property specifies the timing function of a transition?",
-    options: [
-      "transition-timing-function",
-      "animation-timing",
-      "timing-speed",
-      "transition-speed",
-    ],
-    correct: "transition-timing-function",
-  },
-  {
-    id: 38,
-    question: "What does the `content` property do in pseudo-elements?",
-    options: [
-      "Adds content to an element",
-      "Controls element size",
-      "Sets margin",
-      "Changes stacking order",
-    ],
-    correct: "Adds content to an element",
-  },
-  {
-    id: 39,
-    question: "What does the `filter` property do in CSS?",
-    options: [
-      "Applies visual effects to elements",
-      "Adjusts layout flow",
-      "Controls column size",
-      "Sets grid areas",
-    ],
-    correct: "Applies visual effects to elements",
-  },
-  {
-    id: 40,
-    question: "What does the `pointer-events` property do?",
-    options: [
-      "Specifies if an element can receive pointer events",
-      "Controls hover effects",
-      "Adjusts alignment",
-      "Sets animation speed",
-    ],
-    correct: "Specifies if an element can receive pointer events",
+    correct: "Handle business and data-related logic",
   },
 ];
 
