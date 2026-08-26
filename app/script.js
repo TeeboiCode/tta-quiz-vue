@@ -559,6 +559,423 @@ const quizNodeExpressQuestions = [
     ],
     correct: "Handle business and data-related logic",
   },
+  {
+    id: 31,
+    question:
+      "A frontend application needs to communicate with a backend server to retrieve student records. Which technology concept defines the interface through which this communication occurs?",
+    options: [
+      "API",
+      "IDE",
+      "GUI",
+      "CLI",
+    ],
+    correct: "API",
+  },
+
+  {
+    id: 32,
+    question:
+      "A developer wants to build a mobile application and needs libraries, tools, documentation, and debugging utilities provided for the platform. Which would be most appropriate?",
+    options: [
+      "SDK",
+      "URL",
+      "URI",
+      "CRUD",
+    ],
+    correct: "SDK",
+  },
+
+  {
+    id: 33,
+    question:
+      "Which statement best explains the difference between an IDE and a CLI?",
+    options: [
+      "An IDE is only used for databases, while a CLI is only used for websites",
+      "An IDE provides an integrated environment for developing software, while a CLI allows interaction through commands",
+      "An IDE is a programming language, while a CLI is a database",
+      "There is no difference between them",
+    ],
+    correct:
+      "An IDE provides an integrated environment for developing software, while a CLI allows interaction through commands",
+  },
+
+  {
+    id: 34,
+    question:
+      "Which of the following is an example of interacting with a computer through a CLI?",
+    options: [
+      "Clicking a folder in Windows Explorer",
+      "Typing npm install express in a terminal",
+      "Dragging an icon onto the desktop",
+      "Clicking a button in a web application",
+    ],
+    correct: "Typing npm install express in a terminal",
+  },
+
+  {
+    id: 35,
+    question:
+      "Which statement best describes a GUI?",
+    options: [
+      "A system that allows users to interact with software through visual elements",
+      "A protocol used to transfer web requests",
+      "A format used to store API data",
+      "A programming language",
+    ],
+    correct:
+      "A system that allows users to interact with software through visual elements",
+  },
+
+  {
+    id: 36,
+    question:
+      "In the URL https://example.com/products/15, which part identifies the protocol being used?",
+    options: [
+      "example.com",
+      "/products/15",
+      "https",
+      "15",
+    ],
+    correct: "https",
+  },
+
+  {
+    id: 37,
+    question:
+      "Which statement best describes the relationship between a URL and a URI?",
+    options: [
+      "A URL can be considered a type of URI that identifies a resource by describing where it can be located",
+      "A URI is always a database connection",
+      "A URL is only used for local files",
+      "They are completely unrelated concepts",
+    ],
+    correct:
+      "A URL can be considered a type of URI that identifies a resource by describing where it can be located",
+  },
+
+  {
+    id: 38,
+    question:
+      "A browser sends a request to a web server using a standard protocol for transferring web resources. Which protocol is being used?",
+    options: [
+      "HTTP",
+      "SQL",
+      "JSON",
+      "CRUD",
+    ],
+    correct: "HTTP",
+  },
+
+  {
+    id: 39,
+    question:
+      "What is the primary difference between HTTP and HTTPS?",
+    options: [
+      "HTTPS adds encryption and security to HTTP communication",
+      "HTTP is only for databases",
+      "HTTPS cannot be used with APIs",
+      "HTTP is faster because it stores data as JSON",
+    ],
+    correct:
+      "HTTPS adds encryption and security to HTTP communication",
+  },
+
+  {
+    id: 40,
+    question:
+      "An API returns the following response: { \"name\": \"John\", \"age\": 20 }. What data format is being used?",
+    options: [
+      "XML",
+      "JSON",
+      "SQL",
+      "HTML",
+    ],
+    correct: "JSON",
+  },
+
+  // ==========================================
+  // DATA AND DATABASE CONCEPTS
+  // ==========================================
+
+  {
+    id: 41,
+    question:
+      "Which situation is most appropriate for using XML instead of JSON?",
+    options: [
+      "A system specifically requires a structured XML-based format",
+      "You want to create a CSS stylesheet",
+      "You want to define a JavaScript function",
+      "You want to execute a SQL query",
+    ],
+    correct:
+      "A system specifically requires a structured XML-based format",
+  },
+
+  {
+    id: 42,
+    question:
+      "An application allows an administrator to add users, view users, modify users, and remove users. Which concept describes these four operations?",
+    options: [
+      "CRUD",
+      "GUI",
+      "SEO",
+      "DOM",
+    ],
+    correct: "CRUD",
+  },
+
+  {
+    id: 43,
+    question:
+      "Which of the following is an example of a relational database management system?",
+    options: [
+      "MySQL",
+      "MongoDB",
+      "Firebase",
+      "JSON",
+    ],
+    correct: "MySQL",
+  },
+
+  {
+    id: 44,
+    question:
+      "A developer needs to retrieve all students whose age is greater than 18 from a MySQL database. Which technology would normally be used to express this database query?",
+    options: [
+      "SQL",
+      "CSS",
+      "JSON",
+      "DOM",
+    ],
+    correct: "SQL",
+  },
+
+  {
+    id: 45,
+    question:
+      "Which statement best describes a NoSQL database?",
+    options: [
+      "It is a database approach that does not primarily rely on traditional relational tables",
+      "It can only store numbers",
+      "It is another name for HTML",
+      "It cannot store application data",
+    ],
+    correct:
+      "It is a database approach that does not primarily rely on traditional relational tables",
+  },
+
+  // ==========================================
+  // HTML AND DOM
+  // ==========================================
+
+  {
+    id: 46,
+    question:
+      "What is the primary responsibility of HTML in a web application?",
+    options: [
+      "Define the structure and content of the webpage",
+      "Handle database queries",
+      "Encrypt HTTP requests",
+      "Manage server processes",
+    ],
+    correct:
+      "Define the structure and content of the webpage",
+  },
+
+  {
+    id: 47,
+    question:
+      "When a browser converts HTML elements into a tree-like structure that JavaScript can access and modify, what is created?",
+    options: [
+      "BOM",
+      "DOM",
+      "API",
+      "SDK",
+    ],
+    correct: "DOM",
+  },
+
+  {
+    id: 48,
+    question:
+      "Consider the following HTML: <h1 id='title'>Hello</h1>. Which JavaScript expression correctly selects this element using its ID?",
+    options: [
+      "document.getElementById('title')",
+      "document.getElement('title')",
+      "document.selectId('title')",
+      "window.getElementById('title')",
+    ],
+    correct: "document.getElementById('title')",
+  },
+
+  {
+    id: 49,
+    question:
+      "A developer changes the text inside an HTML element using JavaScript while the page is already loaded. Which concept makes this possible?",
+    options: [
+      "DOM manipulation",
+      "SQL",
+      "SEO",
+      "SSR",
+    ],
+    correct: "DOM manipulation",
+  },
+
+  {
+    id: 50,
+    question:
+      "Which statement best describes SEO?",
+    options: [
+      "Techniques used to improve a website's visibility in search engine results",
+      "A protocol for communicating with databases",
+      "A JavaScript execution environment",
+      "A CSS measurement unit",
+    ],
+    correct:
+      "Techniques used to improve a website's visibility in search engine results",
+  },
+
+  // ==========================================
+  // CSS
+  // ==========================================
+
+  {
+    id: 51,
+    question:
+      "If an element has font-size: 16px on the root HTML element, approximately how many pixels is 2rem?",
+    options: [
+      "8px",
+      "16px",
+      "32px",
+      "64px",
+    ],
+    correct: "32px",
+  },
+
+  {
+    id: 52,
+    question:
+      "An element has a font-size of 20px and its child uses 1.5em. What does the em unit depend on?",
+    options: [
+      "The viewport width only",
+      "The relevant element's font size",
+      "The browser's screen resolution",
+      "The HTML document's URL",
+    ],
+    correct:
+      "The relevant element's font size",
+  },
+
+  {
+    id: 53,
+    question:
+      "Which CSS unit represents a percentage of the viewport's height?",
+    options: [
+      "vw",
+      "vh",
+      "rem",
+      "px",
+    ],
+    correct: "vh",
+  },
+
+  {
+    id: 54,
+    question:
+      "Which CSS unit represents a percentage of the viewport's width?",
+    options: [
+      "vh",
+      "em",
+      "vw",
+      "rem",
+    ],
+    correct: "vw",
+  },
+
+  {
+    id: 55,
+    question:
+      "Which of the following represents the color red using hexadecimal notation?",
+    options: [
+      "#00FF00",
+      "#0000FF",
+      "#FF0000",
+      "#FFFFFF",
+    ],
+    correct: "#FF0000",
+  },
+
+  // ==========================================
+  // JAVASCRIPT FUNDAMENTALS
+  // ==========================================
+
+  {
+    id: 56,
+    question:
+      "What does ECMAScript define in relation to JavaScript?",
+    options: [
+      "It defines the standard specification that JavaScript implementations follow",
+      "It is a CSS framework",
+      "It is a database engine",
+      "It is an HTML rendering engine",
+    ],
+    correct:
+      "It defines the standard specification that JavaScript implementations follow",
+  },
+
+  {
+    id: 57,
+    question:
+      "What was one of the major changes introduced with ES6?",
+    options: [
+      "let, const, arrow functions, classes, and other modern JavaScript features",
+      "HTML tables",
+      "CSS media queries",
+      "SQL databases",
+    ],
+    correct:
+      "let, const, arrow functions, classes, and other modern JavaScript features",
+  },
+
+  {
+    id: 58,
+    question:
+      "Which JavaScript construct is specifically designed to execute a function immediately after it is defined?",
+    options: [
+      "IIFE",
+      "DOM",
+      "BOM",
+      "SPA",
+    ],
+    correct: "IIFE",
+  },
+
+  {
+    id: 59,
+    question:
+      "A developer runs npm install express in the terminal. What is npm primarily responsible for in this situation?",
+    options: [
+      "Managing and installing JavaScript packages",
+      "Rendering HTML",
+      "Creating CSS animations",
+      "Managing browser cookies",
+    ],
+    correct:
+      "Managing and installing JavaScript packages",
+  },
+
+  {
+    id: 60,
+    question:
+      "A website loads one main HTML document and dynamically changes its content as users navigate without performing a full page reload for every view. What architecture does this describe?",
+    options: [
+      "SPA",
+      "SSR",
+      "SQL",
+      "XML",
+    ],
+    correct: "SPA",
+  },
 ];
 
 let remainingQuestion = [...quizQuestions];
