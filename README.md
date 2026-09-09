@@ -1,31 +1,81 @@
-# Quiz App
+# TTA Quiz Application (`tta-quiz-vue`)
 
-<a href="index.html">click</a>
+A modern, responsive web application for taking interactive quizzes, tracking user performance, and managing quiz content via a dedicated administrator dashboard.
 
-A dynamic and interactive quiz application that allows users to test their knowledge on various topics. This app is designed with a clean user interface, customizable questions, and real-time scoring, making it ideal for learning, entertainment, or educational purposes.
+---
 
-## Features
+## 🌟 Key Features
 
-- **Multiple Quiz Categories:** Choose from a variety of topics or create your own quizzes.
-- **Real-Time Scoring:** Get instant feedback on your answers.
-- **User-Friendly Interface:** Simple, intuitive design for a seamless user experience.
-- **Customizable Questions:** Add, edit, or delete questions as needed.
-- **Responsive Design:** Works across all devices, including mobile, tablet, and desktop.
+### Candidate Portal (`/app`)
+- **User Registration & Login**: Simple onboard flow for quiz candidates.
+- **Interactive Quiz Interface**: Timed multiple-choice quizzes with dynamic navigation, timer warning alerts, and real-time question progress.
+- **Detailed Results Dashboard**: Comprehensive post-quiz feedback showing score summary, performance breakdown, and correct answers.
+- **Configurable Backend Integration**: Connects dynamically to the `tta-quiz-be` Express API.
 
-## Technologies Used
+### Admin Dashboard (`/admin`)
+- **Secure Authentication**: Protected admin login.
+- **Quiz Management**: Create, view, update, and organize quiz categories.
+- **Question Editor**: Easily add and configure multiple-choice questions.
+- **Candidate Analytics**: Inspect candidate submissions, scores, and completion metrics.
 
-- **Frontend:** HTML, CSS, JavaScript# Quiz App
+---
 
-A dynamic and interactive quiz application that allows users to test their knowledge on various topics. This app is designed with a clean user interface, customizable questions, and real-time scoring, making it ideal for learning, entertainment, or educational purposes.
+## 💻 Tech Stack
 
-## Features
+- **Frontend**: HTML5, CSS3 (Modern Flexbox/Grid), Vanilla JavaScript (ES6+)
+- **Icons & Fonts**: Font Awesome 6, Inter Font family
+- **API Communication**: Fetch API connecting to `tta-quiz-be`
 
-- **Multiple Quiz Categories:** Choose from a variety of topics or create your own quizzes.
-- **Real-Time Scoring:** Get instant feedback on your answers.
-- **User-Friendly Interface:** Simple, intuitive design for a seamless user experience.
-- **Customizable Questions:** Add, edit, or delete questions as needed.
-- **Responsive Design:** Works across all devices, including mobile, tablet, and desktop.
+---
 
-## Technologies Used
+## 📂 Project Structure
 
-- **Frontend:** HTML, CSS, JavaScript
+```text
+tta-quiz-vue/
+├── app/                  # Candidate Web Application
+│   ├── index.html        # Landing & Quiz selection
+│   ├── register.html     # User registration page
+│   ├── results.html      # Post-quiz score summary page
+│   ├── config.js         # API BASE URL configuration
+│   ├── script.js         # Core candidate quiz logic
+│   └── style.css         # Styling system
+├── admin/                # Administrator Dashboard
+│   ├── login.html        # Admin login page
+│   ├── dashboard.html    # Analytics & overview
+│   ├── quizzes.html      # Quiz management dashboard
+│   ├── results.html      # Submission review dashboard
+│   └── style.css         # Admin custom theme
+├── question.js           # Question data module
+└── README.md
+```
+
+---
+
+## 🚦 Getting Started
+
+### 1. Configuration
+
+Update `app/config.js` with your backend server URL (defaults to local development backend):
+
+```javascript
+const CONFIG = {
+  API_BASE_URL: "http://localhost:5000",
+};
+```
+
+### 2. Launching the App
+
+You can serve the static files using any local web server, such as Live Server in VS Code, Python's `http.server`, or Vite/Http-server:
+
+```bash
+# Example using npx http-server
+npx http-server . -p 3000
+```
+
+Open your browser to `http://localhost:3000/app/index.html` for candidates or `http://localhost:3000/admin/login.html` for administrators.
+
+---
+
+## 📄 License
+
+[MIT](LICENSE)
