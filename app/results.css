@@ -1,0 +1,299 @@
+/* ============================================================
+   results.css — Result page styles
+   Builds on top of style.css (shared utilities like .hidden,
+   .loading-container, .dot animation)
+   ============================================================ */
+
+/* ── Page shell ─────────────────────────────────────────────── */
+.result-page {
+  min-height: 100vh;
+  background: #0a69ed;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.result-header {
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.result-header-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.result-brand {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+}
+
+/* ── Main area ──────────────────────────────────────────────── */
+.result-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* ── Loading spinner ────────────────────────────────────────── */
+.result-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Empty state ────────────────────────────────────────────── */
+.result-empty {
+  text-align: center;
+  color: #fff;
+  animation: fadeUp 0.4s ease both;
+}
+
+.result-empty-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.result-empty h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-empty p {
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Result card ────────────────────────────────────────────── */
+.result-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  animation: fadeUp 0.5s ease both;
+}
+
+/* Trophy emoji */
+.result-trophy {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  animation: bounceIn 0.6s ease both 0.2s;
+}
+
+/* Title */
+.result-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 0.25rem;
+}
+
+/* Quiz name subtitle */
+.result-quiz-name {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* ── Score ring ─────────────────────────────────────────────── */
+.result-score-ring {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 1.75rem;
+}
+
+.ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ring-progress {
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: stroke-dashoffset 1.2s ease;
+}
+
+.ring-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.ring-pct {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #1a202c;
+  transition: color 0.4s;
+}
+
+.ring-sub {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* ── Stats row ──────────────────────────────────────────────── */
+.result-stats {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  flex: 1;
+  max-width: 100px;
+  border-radius: 12px;
+  padding: 0.75rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-correct { background: #dcfce7; }
+.stat-wrong   { background: #fee2e2; }
+.stat-total   { background: #e8f0fe; }
+
+.stat-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-correct .stat-num { color: #16a34a; }
+.stat-wrong   .stat-num { color: #dc2626; }
+.stat-total   .stat-num { color: #0a69ed; }
+
+.stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+
+/* ── Message ────────────────────────────────────────────────── */
+.result-message {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  min-height: 1.5em;
+}
+
+/* ── Meta (name · date) ─────────────────────────────────────── */
+.result-meta {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 1.75rem;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.result-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.result-btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.result-btn-primary {
+  background: #0a69ed;
+  color: #fff;
+}
+
+.result-btn-primary:hover {
+  background: #0851bc;
+  transform: translateY(-1px);
+}
+
+.result-btn-secondary {
+  background: #f1f5f9;
+  color: #374151;
+}
+
+.result-btn-secondary:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+/* Standalone .result-btn (empty state) */
+.result-empty .result-btn {
+  background: #fff;
+  color: #0a69ed;
+  font-size: 0.95rem;
+}
+
+.result-empty .result-btn:hover {
+  background: #e8f0fe;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0.3); opacity: 0; }
+  60%  { transform: scale(1.1); opacity: 1; }
+  80%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .result-card {
+    padding: 2rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .result-score-ring {
+    width: 140px;
+    height: 140px;
+  }
+
+  .ring-pct { font-size: 1.5rem; }
+
+  .result-stats { gap: 0.5rem; }
+
+  .stat-num { font-size: 1.3rem; }
+
+  .result-actions {
+    flex-direction: column;
+  }
+
+  .result-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

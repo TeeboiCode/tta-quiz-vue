@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TTA Admin — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+
+      <!-- ── Sidebar ── -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-badge">TTA</span>
+          <span class="sidebar-brand-name">Admin Panel</span>
+        </div>
+
+        <nav class="sidebar-nav">
+          <p class="nav-section-label">Main</p>
+          <a href="dashboard.html" class="nav-item" data-nav="dashboard">
+            <span class="nav-icon">📊</span> Dashboard
+          </a>
+          <a href="quizzes.html" class="nav-item" data-nav="quizzes">
+            <span class="nav-icon">📝</span> Quizzes
+          </a>
+          <a href="results.html" class="nav-item" data-nav="results">
+            <span class="nav-icon">📋</span> Results
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p class="sidebar-user" id="sidebarUser">—</p>
+          <button class="btn btn-ghost btn-sm" onclick="signOut()" style="width:100%;">
+            Sign Out
+          </button>
+        </div>
+      </aside>
+
+      <!-- ── Header ── -->
+      <header class="admin-header">
+        <h1>Dashboard</h1>
+        <span class="text-muted" style="font-size:.8rem;" id="headerUser"></span>
+      </header>
+
+      <!-- ── Main ── -->
+      <main class="admin-main">
+
+        <!-- Stat cards -->
+        <div class="stat-grid" id="statGrid">
+          <div class="stat-card">
+            <span class="stat-card-label">Total Attempts</span>
+            <span class="stat-card-value" id="statTotal">—</span>
+            <span class="stat-card-sub">across all quizzes</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-label">Active Quiz</span>
+            <span class="stat-card-value" id="statActiveQuiz" style="font-size:1.1rem;line-height:1.3">—</span>
+            <span class="stat-card-sub" id="statActiveTime">—</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-label">Total Quizzes</span>
+            <span class="stat-card-value" id="statQuizCount">—</span>
+            <span class="stat-card-sub">created</span>
+          </div>
+        </div>
+
+        <!-- Per-quiz stats table -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Performance by Quiz</h3>
+          </div>
+          <div class="table-wrap" id="statsTableWrap">
+            <div class="spinner-wrap"><div class="spinner"></div></div>
+          </div>
+        </div>
+
+        <!-- Recent results -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Recent Submissions</h3>
+            <a href="results.html" class="btn btn-ghost btn-sm">View All</a>
+          </div>
+          <div class="table-wrap" id="recentTableWrap">
+            <div class="spinner-wrap"><div class="spinner"></div></div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="utils.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

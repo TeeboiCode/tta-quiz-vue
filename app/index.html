@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>tta | NODE Quiz</title>
-    <!-- font awesome -->
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -13,15 +14,13 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- box icon -->
+    <!-- Box Icons -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- sweetalert -->
-    <link rel="stylesheet" href="sweetalert2.min.css" />
-    <!-- font  -->
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,28 +28,45 @@
       rel="stylesheet"
     />
 
-    <!-- my css -->
+    <!-- SweetAlert2 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+
+    <!-- App CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <!-- loading -->
-      <div class="container">
-        <div class="preload">
-          <div class="loading-container">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-          </div>
+
+      <!-- Preloader -->
+      <div class="preload">
+        <div class="loading-container">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
         </div>
       </div>
 
-      <!-- Add this before the quiz starts -->
+      <!-- No-quiz holding screen (shown when no quiz is active) -->
+      <div class="no-quiz-banner hidden" id="noQuizBanner">
+        <div class="no-quiz-card">
+          <span class="no-quiz-icon">📋</span>
+          <h2>No quiz right now</h2>
+          <p>
+            There's no active quiz at the moment.<br />
+            Check back with your instructor for the next one.
+          </p>
+        </div>
+      </div>
+
+      <!-- Name Form -->
       <div class="name-container hidden" id="nameContainer">
         <form class="player-form" id="playerForm">
           <h2>Enter Your Full Name</h2>
@@ -59,22 +75,24 @@
             id="playerName"
             placeholder="Your Full Name"
             required
+            autocomplete="name"
           />
-          <button type="submit">Submit</button>
+          <button type="submit">Let's Start</button>
         </form>
       </div>
 
-      <!-- count down -->
+      <!-- 3-2-1 Countdown overlay -->
       <div class="count-down-container hidden">
         <h1 class="count-down-text" id="countdownText"></h1>
         <h1 class="count-down-num" id="countdownNum"></h1>
       </div>
 
-      <!-- start button -->
+      <!-- Start Button -->
       <div class="btn-start hidden" id="btn_start">
         <button class="start-btn" id="start_btn">Start Quiz</button>
       </div>
 
+      <!-- Quiz Rules Card -->
       <div class="quiz-rules hidden" id="quiz_rules">
         <div class="card-top">
           <h2 class="heading">Some Rules of this Quiz</h2>
@@ -82,12 +100,9 @@
         </div>
         <div class="card-body">
           <ol type="1">
-            <li>
-              You will have only <span class="sec">30 seconds</span> per each
-              question.
-            </li>
+            <li>You will have only <span class="sec">30 seconds</span> per question.</li>
             <li>Once you select your answer, it can't be undone.</li>
-            <li>You can't select any option ance time goes off.</li>
+            <li>You can't select any option once time goes off.</li>
             <li>You can't exit from the Quiz while you're playing.</li>
             <li>You'll get points on the basis of your correct answers.</li>
           </ol>
@@ -95,61 +110,73 @@
         <div class="btn-group">
           <span class="hr-down"><hr /></span>
           <button class="btn btn-exit" id="exitBtn">Exit</button>
-          <button class="btn btn-continue" id="continueBtn">
-            Quiz Continue
-          </button>
+          <button class="btn btn-continue" id="continueBtn">Continue</button>
         </div>
       </div>
 
+      <!-- Quiz Card -->
       <div class="quiz-card hidden" id="quiz_card">
+        <!-- Progress bar -->
+        <div class="progress-bar">
+          <div class="progress-bar-fill"></div>
+        </div>
+
         <div class="quiz-card-top">
-          <h3 class="heading">Awesome Quiz Application</h3>
+          <!-- Title set dynamically from quiz data -->
+          <h3 class="heading">TTA Quiz</h3>
           <div class="left-time">
             <p>Time Left <span class="tym"></span></p>
           </div>
         </div>
+
         <div class="quiz-card-body">
           <h2>
-            <span class="questionNextNum"></span
-            ><span class="question" id="question"></span>
+            <span class="questionNextNum"></span>
+            <span class="question" id="question"></span>
           </h2>
           <div class="options">
             <p id="answer-option"></p>
           </div>
         </div>
-        <!-- <hr class="line-down" /> -->
+
         <div class="question-num">
           <p>
             <span class="next-question"></span> of
             <span class="total-question2"></span> Questions
           </p>
-          <button class="btn btn-next hidden" id="nextBtn">Next</button>
+          <button class="btn btn-next hidden" id="nextBtn">Next →</button>
         </div>
       </div>
 
+      <!-- Completion Card -->
       <div class="complete hidden" id="complete">
         <div class="complete-card">
           <span class="crown">👑</span>
           <p>
-            You've completed the Quiz! <br />
-            and congrats! 🎉, You got <span class="correct-score"></span> out of
-            <span class="total-question"></span> <br /><br />
+            You've completed the Quiz!<br />
+            Congrats 🎉 — you got
+            <span class="correct-score"></span> out of
+            <span class="total-question"></span><br /><br />
             <span id="percentage" style="font-size: 3rem">
               (<span class="percentage-score"></span>%)
             </span>
           </p>
-          <div class="btn-group">
+          <div class="btn-group" style="justify-content: center; margin-top: 1rem;">
             <button class="replay-btn">Replay Quiz</button>
             <button class="quit-btn">Quit Quiz</button>
           </div>
         </div>
       </div>
+
     </div>
 
-    <!-- my js -->
-    <script src="script.js"></script>
-    <!-- sweet alert -->
+    <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
+
+    <!-- API config — must load before script.js -->
+    <script src="config.js"></script>
+
+    <!-- App JS — questions.js removed; data now comes from the API -->
+    <script src="script.js"></script>
   </body>
 </html>

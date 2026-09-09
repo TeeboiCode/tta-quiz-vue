@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TTA Admin — Quizzes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+
+      <!-- ── Sidebar ── -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-badge">TTA</span>
+          <span class="sidebar-brand-name">Admin Panel</span>
+        </div>
+        <nav class="sidebar-nav">
+          <p class="nav-section-label">Main</p>
+          <a href="dashboard.html" class="nav-item" data-nav="dashboard">
+            <span class="nav-icon">📊</span> Dashboard
+          </a>
+          <a href="quizzes.html" class="nav-item" data-nav="quizzes">
+            <span class="nav-icon">📝</span> Quizzes
+          </a>
+          <a href="results.html" class="nav-item" data-nav="results">
+            <span class="nav-icon">📋</span> Results
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <p class="sidebar-user" id="sidebarUser">—</p>
+          <button class="btn btn-ghost btn-sm" onclick="signOut()" style="width:100%;">Sign Out</button>
+        </div>
+      </aside>
+
+      <!-- ── Header ── -->
+      <header class="admin-header">
+        <h1>Quizzes</h1>
+        <button class="btn btn-primary btn-sm" id="btnNewQuiz">+ New Quiz</button>
+      </header>
+
+      <!-- ── Main ── -->
+      <main class="admin-main">
+        <div id="quizListWrap">
+          <div class="spinner-wrap"><div class="spinner"></div></div>
+        </div>
+      </main>
+
+    </div>
+
+    <!-- ══ Create / Edit Quiz Modal ══ -->
+    <div class="modal-backdrop hidden" id="quizModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="quizModalTitle">New Quiz</h3>
+          <button class="modal-close" onclick="closeModal('quizModal')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-error hidden" id="quizModalError"></div>
+          <div class="form-group">
+            <label for="quizTitle">Quiz Title *</label>
+            <input type="text" id="quizTitle" class="form-control" placeholder="e.g. NODE Fundamentals Quiz" maxlength="200" />
+          </div>
+          <div class="form-group">
+            <label for="quizDesc">Description</label>
+            <textarea id="quizDesc" class="form-control" rows="3" placeholder="Brief description of this quiz…" maxlength="1000"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="quizTime">Time per Question (seconds)</label>
+            <input type="number" id="quizTime" class="form-control" min="5" max="300" value="30" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" onclick="closeModal('quizModal')">Cancel</button>
+          <button class="btn btn-primary" id="quizModalSave">Save Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ Add / Edit Question Modal ══ -->
+    <div class="modal-backdrop hidden" id="questionModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="questionModalTitle">Add Question</h3>
+          <button class="modal-close" onclick="closeModal('questionModal')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-error hidden" id="questionModalError"></div>
+
+          <div class="form-group">
+            <label for="qText">Question *</label>
+            <textarea id="qText" class="form-control" rows="3"
+              placeholder="Enter the question text…" maxlength="2000"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Answer Options *
+              <span class="text-muted" style="font-weight:400;font-size:.75rem;">
+                (2–6 options, tick the correct one)
+              </span>
+            </label>
+            <div id="optionsList"></div>
+            <button class="btn btn-ghost btn-sm" id="btnAddOption" style="margin-top:.5rem;">
+              + Add Option
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label for="qOrder">Display Order</label>
+            <input type="number" id="qOrder" class="form-control" min="0" placeholder="Auto" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" onclick="closeModal('questionModal')">Cancel</button>
+          <button class="btn btn-primary" id="questionModalSave">Save Question</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="utils.js"></script>
+    <script src="quizzes.js"></script>
+  </body>
+</html>

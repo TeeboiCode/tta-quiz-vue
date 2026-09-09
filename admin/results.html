@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TTA Admin — Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+
+      <!-- ── Sidebar ── -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-badge">TTA</span>
+          <span class="sidebar-brand-name">Admin Panel</span>
+        </div>
+        <nav class="sidebar-nav">
+          <p class="nav-section-label">Main</p>
+          <a href="dashboard.html" class="nav-item" data-nav="dashboard">
+            <span class="nav-icon">📊</span> Dashboard
+          </a>
+          <a href="quizzes.html" class="nav-item" data-nav="quizzes">
+            <span class="nav-icon">📝</span> Quizzes
+          </a>
+          <a href="results.html" class="nav-item" data-nav="results">
+            <span class="nav-icon">📋</span> Results
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <p class="sidebar-user" id="sidebarUser">—</p>
+          <button class="btn btn-ghost btn-sm" onclick="signOut()" style="width:100%;">Sign Out</button>
+        </div>
+      </aside>
+
+      <!-- ── Header ── -->
+      <header class="admin-header">
+        <h1>Results</h1>
+        <span class="text-muted" style="font-size:.82rem;" id="resultCount"></span>
+      </header>
+
+      <!-- ── Main ── -->
+      <main class="admin-main">
+
+        <!-- Filters -->
+        <div class="card" style="margin-bottom:1rem;">
+          <div class="card-body" style="padding:.9rem 1.25rem;">
+            <div class="filters-bar">
+              <!-- Quiz filter -->
+              <select class="form-control" id="filterQuiz">
+                <option value="">All Quizzes</option>
+              </select>
+
+              <!-- Name search -->
+              <input type="text" class="form-control" id="filterName"
+                placeholder="Search by name…" style="min-width:180px;" />
+
+              <!-- Date from -->
+              <input type="date" class="form-control" id="filterFrom" />
+
+              <!-- Date to -->
+              <input type="date" class="form-control" id="filterTo" />
+
+              <button class="btn btn-primary btn-sm" id="btnFilter">Filter</button>
+              <button class="btn btn-ghost btn-sm" id="btnClear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="card">
+          <div class="table-wrap" id="resultsTableWrap">
+            <div class="spinner-wrap"><div class="spinner"></div></div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination hidden" id="pagination">
+            <span id="paginationInfo">Showing 0–0 of 0</span>
+            <div class="pagination-btns">
+              <button class="btn btn-ghost btn-sm" id="btnPrev" disabled>← Prev</button>
+              <button class="btn btn-ghost btn-sm" id="btnNext" disabled>Next →</button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="utils.js"></script>
+    <script src="results.js"></script>
+  </body>
+</html>

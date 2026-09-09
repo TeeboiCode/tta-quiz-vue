@@ -3,32 +3,119 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz Results</title>
+    <title>tta | Quiz Result</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="results.css" />
   </head>
   <body>
-    <div class="results-container">
-      <h1>Quiz Results</h1>
-      <div class="results-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Name</th>
-              <th>Score</th>
-              <th>Percentage</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody id="resultsBody">
-            <!-- Results will be inserted here dynamically -->
-          </tbody>
-        </table>
-      </div>
-      <button class="btn" onclick="window.location.href='index.html'">
-        Take Quiz Again
-      </button>
+    <div class="result-page">
+
+      <!-- Header -->
+      <header class="result-header">
+        <div class="result-header-inner">
+          <span class="result-brand">TTA Quiz</span>
+        </div>
+      </header>
+
+      <!-- Main content -->
+      <main class="result-main">
+
+        <!-- Loading state -->
+        <div class="result-loading" id="resultLoading">
+          <div class="loading-container">
+            <div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div>
+          </div>
+        </div>
+
+        <!-- No result fallback -->
+        <div class="result-empty hidden" id="resultEmpty">
+          <span class="result-empty-icon">🤔</span>
+          <h2>No result found</h2>
+          <p>It looks like you haven't completed a quiz yet.</p>
+          <a href="index.html" class="result-btn">Take the Quiz</a>
+        </div>
+
+        <!-- Result card -->
+        <div class="result-card hidden" id="resultCard">
+
+          <div class="result-trophy" id="resultTrophy">🏆</div>
+
+          <h1 class="result-title" id="resultTitle">Quiz Complete!</h1>
+
+          <p class="result-quiz-name" id="resultQuizName"></p>
+
+          <!-- Score ring -->
+          <div class="result-score-ring" id="resultScoreRing">
+            <svg viewBox="0 0 120 120" class="ring-svg" aria-hidden="true">
+              <circle cx="60" cy="60" r="50"
+                fill="none" stroke="#e8f0fe" stroke-width="10"/>
+              <circle cx="60" cy="60" r="50"
+                fill="none" stroke-width="10"
+                stroke-linecap="round"
+                stroke-dasharray="314"
+                stroke-dashoffset="314"
+                id="ringProgress"
+                class="ring-progress"
+                transform="rotate(-90 60 60)"/>
+            </svg>
+            <div class="ring-label">
+              <span class="ring-pct" id="ringPct">0%</span>
+              <span class="ring-sub" id="ringSub">0 / 0</span>
+            </div>
+          </div>
+
+          <!-- Stats row -->
+          <div class="result-stats">
+            <div class="stat-card stat-correct">
+              <span class="stat-num" id="statCorrect">0</span>
+              <span class="stat-label">Correct</span>
+            </div>
+            <div class="stat-card stat-wrong">
+              <span class="stat-num" id="statWrong">0</span>
+              <span class="stat-label">Wrong</span>
+            </div>
+            <div class="stat-card stat-total">
+              <span class="stat-num" id="statTotal">0</span>
+              <span class="stat-label">Total</span>
+            </div>
+          </div>
+
+          <!-- Motivational message -->
+          <p class="result-message" id="resultMessage"></p>
+
+          <!-- Name & date -->
+          <p class="result-meta">
+            <span id="resultName"></span> &nbsp;·&nbsp;
+            <span id="resultDate"></span>
+          </p>
+
+          <!-- Actions -->
+          <div class="result-actions">
+            <a href="index.html" class="result-btn result-btn-primary">
+              Try Again
+            </a>
+            <a href="../index.html" class="result-btn result-btn-secondary">
+              Home
+            </a>
+          </div>
+
+        </div>
+
+      </main>
     </div>
+
     <script src="results.js"></script>
   </body>
 </html>
